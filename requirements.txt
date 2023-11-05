@@ -2,3 +2,4 @@ fastapi
 pillow
 numpy
 python-multipart
+uvicorn
