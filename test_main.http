@@ -1,0 +1,33 @@
+# Test your FastAPI endpoints
+
+GET http://127.0.0.1:8000/
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/hello/Vic
+Accept: application/json
+
+### testing encode file
+
+POST http://127.0.0.1:8000/image_encode
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="image_file"; filename="test.jpg"
+Content-Type: image/jpeg
+
+< ./test2.jpg
+--WebAppBoundary--
+
+### testing decode file
+
+POST http://127.0.0.1:8000/image_decode
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="image_file"; filename="encoded.jpg"
+Content-Type: image/jpeg
+
+< ./encoded.jpg
+--WebAppBoundary--
